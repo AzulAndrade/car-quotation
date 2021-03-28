@@ -1,5 +1,6 @@
 import React from "react";
 import { primerMayuscula } from '../helper';
+import PropTypes from 'prop-types';
 
 const Summary = ({ datos, quote }) => {
   const { brand, year, plan } = datos;
@@ -33,4 +34,8 @@ const Summary = ({ datos, quote }) => {
   );
 };
 
+Summary.propTypes = {
+    datos: PropTypes.object.isRequired
+}
+ 
 export default Summary;

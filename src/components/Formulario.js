@@ -3,6 +3,7 @@ import "./../../src/css/main.css";
 import "./../../src/css/util.css";
 import styled from "@emotion/styled";
 import { getYearDifference, estimatebyBrand, estimatebyPlan } from "../helper";
+import PropTypes from "prop-types";
 
 const Error = styled.h2`
   content: attr(data-validate);
@@ -84,7 +85,7 @@ const Formulario = ({ setSummary, guardarCargando }) => {
         className="contact100-form validate-form"
         onSubmit={makeCarQuotation}
       >
-        <span className="contact100-form-title">Obtain you Car Quotation</span>
+        <span className="contact100-form-title">What insurance are you looking for?</span>
 
         <select
           name="brand"
@@ -192,7 +193,7 @@ const Formulario = ({ setSummary, guardarCargando }) => {
             onChange={obtainInformation}
           ></input>
           <label className="form-check-label" for="inlineRadio1">
-            Plan Básico
+            Basic Plan
           </label>
 
           <input
@@ -205,7 +206,7 @@ const Formulario = ({ setSummary, guardarCargando }) => {
             onChange={obtainInformation}
           ></input>
           <label className="form-check-label" for="inlineRadio2">
-            Plan complete
+            Complete Plan
           </label>
         </div>
         {error ? <Error>Please complete all fields</Error> : null}
@@ -217,6 +218,11 @@ const Formulario = ({ setSummary, guardarCargando }) => {
       </form>
     </Fragment>
   );
+};
+
+Formulario.propTypes = {
+  setSummary: PropTypes.func.isRequired,
+  guardarCargando: PropTypes.func.isRequired,
 };
 
 export default Formulario;
